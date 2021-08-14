@@ -63,7 +63,7 @@ void Segment::print() {
 void Segment::printPointToPoint() {
     cout << this->getName() << ":" ;
     cout << "Point(" << p1.getX() << "," << p1.getY() << ")-(" <<
-    p2.getX() << "," << p2.getY() << ")";
+    p2.getX() << "," << p2.getY() << ")" << endl;
 }
 
 bool Segment::getBottomCornerLeft() const {
@@ -79,12 +79,4 @@ double Segment::Perimeter() {
     double y = p1.getY() - p2.getY();
     return sqrt(pow(x,2) + pow(y,2));
 }
-
-ostream &operator<<(ostream &o, Segment &s) {
-    o << "Segment " << s.getName() << ": "
-    << "x=" << s.getX() << " y=" << s.getY()
-    << " length=" << s.getLength() << " height=" << s.getHeight();
-    return o;
-}
-
 

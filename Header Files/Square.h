@@ -7,25 +7,26 @@
 class Square : public Figure2D {
 private:
     Point p1;
+    Point p2;
     Point center;
     double side;
 public:
     Square();
     Square(Square& s);
-    Square(char* name, Point p1, Point p2); // check if can be made into square!
-    Square(char* name, Point p1, double side);
+    Square(char* name, const Point& p1, const Point& p2); // check if can be made into square!
+    Square(char* name, const Point& p1, double side);
 
-    void setPoint(const Point&);
-    Point getPoint();
-    void setCenter(const Point&);
+    void setPoint(const Point&); // sets p1
+    Point getPoint(); // returns p1
+    void setCenter();
     Point getCenter();
-    void setSide(double side);
+    void setSide();
     double getSide() const ;
 
-    void print() const;
+    void print() override;
     void printCenter();
-    double Area() const;
-    double Perimeter() const;
+    double Area() override;
+    double Perimeter() override;
 };
 
 

@@ -1,7 +1,9 @@
 #include "../Header Files/Rectangle.h"
 
 //Constructors
-Rectangle::Rectangle() = default;
+Rectangle::Rectangle():Figure2D(0,0,0,0) {
+    this->p1 = this->p2 = Point();
+}
 
 Rectangle::Rectangle(Rectangle &r):Figure2D(r.getLength(),r.getHeight(),r.getX(),r.getY()) {
     this->setName(r.getName());

@@ -82,7 +82,7 @@ void Figure2D::printCenter() {
 }
 
 ostream &operator<<(ostream &o, Figure2D &d) {
-    o << "x=" << d.getX() << " y=" << d.getY()
+    o << d.getName() << ": x=" << d.getX() << " y=" << d.getY()
     << " length=" << d.getLength() << " height=" << d.getHeight();
     return o;
 }
