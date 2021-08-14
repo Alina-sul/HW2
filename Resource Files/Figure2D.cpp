@@ -43,7 +43,7 @@ double Figure2D::getHeight() const {
     return this->height;
 }
 
-char* Figure2D::getName() {
+char* Figure2D::getName() const{
     return this->name;
 }
 
@@ -84,6 +84,8 @@ void Figure2D::print() {
 }
 
 ostream &operator<<(ostream &o, Figure2D &d) {
+    o << "x=" << d.getX() << " y=" << d.getY()
+    << " length=" << d.getLength() << " height=" << d.getHeight();
     return o;
 }
 

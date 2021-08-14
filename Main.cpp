@@ -6,11 +6,11 @@
 #include "Header Files/Circle.h"
 int main()
 {
-//	Point P("Point P", 10, 20);
-//	Point Q("Point Q", 20, 0);
-//	Point T1("Point T1", 15, 10);
-//	Point T2("Point T2", 15, -10);
-//	Segment S("Segment PQ", P, Q);
+	Point P("Point P", 10, 20);
+	Point Q("Point Q", 20, 0);
+	Point T1("Point T1", 15, 10);
+	Point T2("Point T2", 15, -10);
+	Segment S("Segment PQ", P, Q);
 //	Rectangle R("Rectangle P-Q", P, Q);
 //	Square Sq("Square P-Q", P, Q);
 //	Circle C("Circle P,5", P, 5);

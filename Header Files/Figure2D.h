@@ -5,8 +5,6 @@
 #include <math.h>
 #include <iostream>
 
-#define M_PI 3.1415926535897931
-
 using namespace std;
 
 class Figure2D {
@@ -27,7 +25,7 @@ public:
     double getY() const;
     double getLength() const;
     double getHeight() const;
-    char* getName();
+    char* getName() const;
     virtual double Area(); //שטח
     virtual double Perimeter();//היקף
     void Shift(double dx, double dy);

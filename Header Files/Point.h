@@ -7,10 +7,9 @@
 class Point : public Figure2D{
 public:
     Point();
-    Point(char* name, double x, double y);
-    Point(double x, double y, double length, double height);
-    ~Point();
-
+    Point(Point& p);
+    Point(char* name, double x, double y, double length = 0, double height = 0);
+    void print() const;
 };
 
 
