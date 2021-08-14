@@ -57,7 +57,11 @@ void Segment::setBottomCornerLeft(bool value) {
 
 //Functions
 void Segment::print() {
-    cout << "Segment " << this->getName() << ":" ;
+    printPointToPoint();
+}
+
+void Segment::printPointToPoint() {
+    cout << this->getName() << ":" ;
     cout << "Point(" << p1.getX() << "," << p1.getY() << ")-(" <<
     p2.getX() << "," << p2.getY() << ")";
 }
@@ -82,3 +86,5 @@ ostream &operator<<(ostream &o, Segment &s) {
     << " length=" << s.getLength() << " height=" << s.getHeight();
     return o;
 }
+
+

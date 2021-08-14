@@ -24,6 +24,7 @@ public:
     bool getBottomCornerLeft() const;
 
     void print() override ;
+    void printPointToPoint();
     double Area() override;
     double Perimeter() override;
 
@@ -32,4 +33,4 @@ public:
 };
 
 
-#endif //HW2_SEGMENT_H
+#endif

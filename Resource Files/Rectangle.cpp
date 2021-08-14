@@ -28,3 +28,7 @@ double Rectangle::Perimeter() {
     return 2 * this->getLength() + 2 * this->getHeight();
 }
 
+void Rectangle::print() {
+    printPointToPoint();
+}
+
