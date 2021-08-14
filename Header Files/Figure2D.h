@@ -18,7 +18,7 @@ public:
     Figure2D(double l, double h, double x = 0, double y = 0);
     Figure2D(Figure2D& f);
     Figure2D();
-    virtual ~Figure2D();
+    virtual ~Figure2D() = default;
     Figure2D& operator=(Figure2D const& d); //check about const
     void setName(char*);
     double getX() const;
@@ -26,8 +26,8 @@ public:
     double getLength() const;
     double getHeight() const;
     char* getName() const;
-    virtual double Area(); //שטח
-    virtual double Perimeter();//היקף
+    virtual double Area() = 0; //שטח
+    virtual double Perimeter() = 0;//היקף
     void Shift(double dx, double dy);
 
     void MoveTo(double newX, double newY);

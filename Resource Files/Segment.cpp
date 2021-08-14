@@ -14,7 +14,7 @@ Segment::Segment(Segment& s):Figure2D(s.getLength(),s.getHeight(),0,0){
     this->BottomCornerLeft = s.getBottomCornerLeft();
 }
 
-Segment::Segment(char* name, Point p1, Point p2):Figure2D(
+Segment::Segment(char* name, const Point& p1, const Point& p2):Figure2D(
           abs(p1.getHeight()-p2.getHeight()),
           abs(p1.getLength()-p2.getLength()),
           p1.getX(),p1.getY()) {
@@ -24,7 +24,7 @@ Segment::Segment(char* name, Point p1, Point p2):Figure2D(
     this->BottomCornerLeft = (p1.getX() < p2.getX());
 }
 
-Segment::Segment(char *name, Point p1, double length, double height, bool bottomCornerLeft)
+Segment::Segment(char *name, const Point& p1, double length, double height, bool bottomCornerLeft)
 :Figure2D(length,height,p1.getX(),p1.getY()) {
     this->setName(name);
     this->p1 = p1;
@@ -35,7 +35,7 @@ Segment::Segment(char *name, Point p1, double length, double height, bool bottom
 }
 
 //Setters and Getters
-void Segment::setP1(Point p) {
+void Segment::setP1(const Point& p) {
     this->p1 = p;
 }
 
@@ -43,7 +43,7 @@ Point Segment::getP1() {
     return this->p1;
 }
 
-void Segment::setP2(Point p) {
+void Segment::setP2(const Point& p) {
     this->p2 = p;
 }
 
@@ -56,7 +56,7 @@ void Segment::setBottomCornerLeft(bool value) {
 }
 
 //Functions
-void Segment::print() const {
+void Segment::print() {
     cout << "Segment " << this->getName() << ":" ;
     cout << "Point(" << p1.getX() << "," << p1.getY() << ")-(" <<
     p2.getX() << "," << p2.getY() << ")";
@@ -66,11 +66,11 @@ bool Segment::getBottomCornerLeft() const {
     return this->BottomCornerLeft;
 }
 
-double Segment::Area() const {
+double Segment::Area() {
     return 0;
 }
 
-double Segment::Perimeter() const {
+double Segment::Perimeter() {
     double x = p1.getX() - p2.getX();
     double y = p1.getY() - p2.getY();
     return sqrt(pow(x,2) + pow(y,2));

@@ -21,8 +21,6 @@ Figure2D::Figure2D() {
     this->y = 0;
 }
 
-Figure2D::~Figure2D() = default;
-
 void Figure2D::setName(char* str_name) {
     this->name = str_name;
 }
@@ -45,14 +43,6 @@ double Figure2D::getHeight() const {
 
 char* Figure2D::getName() const{
     return this->name;
-}
-
-double Figure2D::Area() {
-    return 0.0;
-}
-
-double Figure2D::Perimeter() {
-    return 0.0;
 }
 
 void Figure2D::Shift(double dx, double dy) {

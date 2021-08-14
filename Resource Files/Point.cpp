@@ -17,5 +17,13 @@ void Point::print() const {
     cout << ", y = " << this->getY() << endl;
 }
 
+double Point::Area() {
+    return 0;
+}
+
+double Point::Perimeter() {
+    return 0;
+}
+
 
 
