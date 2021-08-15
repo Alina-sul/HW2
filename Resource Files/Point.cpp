@@ -25,6 +25,22 @@ double Point::Perimeter() {
     return 0;
 }
 
+
+void Point::Resize(double newL, double newH) {
+    Figure2D::Resize(0, 0);
+}
+
+void Point::Shift(double dx, double dy) {
+    Figure2D::Shift(dx, dy);
+}
+
+void Point::Scale(double kx, double ky) {
+    Figure2D::Scale(0, 0);
+    this->setX(this->getX() * kx)  ;
+    this->setY(this->getY() * ky)  ;
+}
+
+
 Point &Point::operator=(const Point &p) {
     this->setName(p.getName());
     this->MoveTo(p.getX(),p.getY());

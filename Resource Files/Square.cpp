@@ -17,10 +17,10 @@ Figure2D(s.getLength(),s.getHeight(),s.getPoint().getX(),s.getPoint().getY()) {
 }
 
 Square::Square(char *name, const Point& p01, const Point& p02):Figure2D(
-        (p01.getX()*2+p02.getX()),
-        this->getSide(),
-        0,
-        (p01.getY() < p02.getY()) ? p01.getY() : p02.getY()
+        abs(p01.getX() - p02.getX()),
+        abs(p01.getY() - p02.getY()),
+        minX(p01,p02).getX(),
+        minY(p01,p02).getY()
         ) {
     this->setName(name);
     this->p1 = p01;
@@ -52,7 +52,9 @@ Point Square::getPoint() {
 }
 
 void Square::setCenter() {
-    this->center = Point(this->center.getName(),this->getLength()/2,this->getHeight()/2+this->p1.getY());
+    this->center = Point(this->center.getName(),
+                         this->getLength()/2+this->getX(),
+                         this->getHeight()/2+this->getY());
 }
 
 Point Square::getCenter() const{
@@ -94,6 +96,27 @@ Square &Square::operator=(const Square &s) {
     this->side = s.getSide();
     this->center = s.getCenter();
     return *this;
+}
+
+void Square::Resize(double newL, double newH) {
+    Figure2D::Resize(newL, newH);
+    updateCoordinatesHL(this->p1,this->p2,this->getLength(),this->getHeight());
+    this->setSide();
+    this->setCenter();
+}
+
+void Square::Shift(double dx, double dy) {
+    Figure2D::Shift(dx, dy);
+    shiftCoordinates(this->p1, this->p2, dx, dy);
+    this->setSide();
+    this->setCenter();
+}
+
+void Square::Scale(double kx, double ky) {
+    Figure2D::Scale(kx, ky);
+    updateCoordinatesHL(this->p1,this->p2,this->getLength(),this->getHeight());
+    this->setSide();
+    this->setCenter();
 }
 
 

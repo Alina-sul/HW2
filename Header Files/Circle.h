@@ -17,7 +17,7 @@ public:
 
     void setPoint(const Point&);
     Point getPoint();
-    void setRadius(double r);
+    void setRadius();
     double getRadius() const;
     void setCenter();
     Point getCenter();
@@ -25,6 +25,9 @@ public:
     void print() override;
     double Area() override;
     double Perimeter() override;
+    void Resize(double newL, double newH) override;
+    void Shift(double dx, double dy) override;
+    void Scale(double kx, double ky) override;
 };
 
 

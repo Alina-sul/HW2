@@ -31,8 +31,8 @@ Point Circle::getPoint() {
     return this->p1;
 }
 
-void Circle::setRadius(double r) {
-    this->radius = r;
+void Circle::setRadius() {
+    this->radius = this->getLength()/2;
 }
 
 double Circle::getRadius() const {
@@ -40,8 +40,9 @@ double Circle::getRadius() const {
 }
 
 void Circle::setCenter() {
-    this->center = Point(this->center.getName(),this->getLength()/2,this->getHeight()/2);
-}
+    this->center = Point(this->center.getName(),
+                         this->getLength()/2+this->getX(),
+                         this->getHeight()/2+this->getY());}
 
 Point Circle::getCenter() {
     return this->center;
@@ -63,4 +64,20 @@ void Circle::print() {
     cout << " and radius " << this->getRadius() << endl;
 }
 
+void Circle::Resize(double newL, double newH) {
+    Figure2D::Resize(newL, newH);
+    this->setRadius();
+    this->setCenter();
+}
 
+void Circle::Shift(double dx, double dy) {
+    Figure2D::Shift(dx, dy);
+    this->setRadius();
+    this->setCenter();
+}
+
+void Circle::Scale(double kx, double ky) {
+    Figure2D::Scale(kx, ky);
+    this->setRadius();
+    this->setCenter();
+}
