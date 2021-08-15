@@ -17,7 +17,6 @@ public:
     Rectangle(char* name, const Point& p1, double length, double height);
 
     void print() override;
-    friend void Segment::printPointToPoint();
     double Area() override;
     double Perimeter() override;
 

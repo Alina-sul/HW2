@@ -34,7 +34,7 @@ public:
     virtual void Shift(double dx, double dy);
     virtual void MoveTo(double newX, double newY);
     virtual void Resize(double newL, double newH);
-    void Scale(double kx, double ky);
+    virtual void Scale(double kx, double ky);
     virtual bool isInside(Figure2D* p);
 
     virtual void print();

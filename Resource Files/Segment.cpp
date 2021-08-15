@@ -31,9 +31,7 @@ Segment::Segment(char *name, const Point& p01, double length, double height, boo
     this->setName(name);
     this->p1 = Point("p01",p01.getX(),p01.getY());;
     this->BottomCornerLeft = bottomCornerLeft;
-
-    Point p2_local("p2",abs(length - p01.getX()),abs(height - p01.getY()));
-    this->p2 = p2_local;
+    this->p2 = Point("p2",abs(length - p01.getX()),abs(height - p01.getY()));
 
 }
 
@@ -74,21 +72,8 @@ bool Segment::getBottomCornerLeft() const {
 }
 
 void Segment::Resize(double newL, double newH){
-
-    double differL = newL - this->getLength();
-    double differH = newH - this->getHeight();
-
     Figure2D::Resize(newL, newH);
-
-    //Add difference of length to max-X and difference of height to max-Y
-
-    (this->p1.getX() > this->p2.getX())
-    ? this->p1.setX(this->p1.getX() + differL)  //p1.x is max
-    : this->p2.setX(this->p2.getX() + differL); //p2.x is max
-
-    (this->p1.getY() > this->p2.getY())
-    ? this->p1.setY(this->p1.getY() + differH)  //p1.y is max
-    : this->p2.setY(this->p2.getY() + differH); //p2.y is max
+    updateCoordinatesHL(this->p1,this->p2,this->getLength(),this->getHeight());
 }
 
 double Segment::Area() {
@@ -111,6 +96,10 @@ void Segment::Shift(double dx, double dy) {
     this->p2.setY(this->p2.getY() + dy);
 }
 
+void Segment::Scale(double kx, double ky) {
+    Figure2D::Scale(kx, ky);
+    updateCoordinatesHL(this->p1,this->p2,this->getLength(),this->getHeight());
+}
 
 
 

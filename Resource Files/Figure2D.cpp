@@ -72,8 +72,8 @@ void Figure2D::Resize(double newL, double newH) {
 }
 
 void Figure2D::Scale(double kx, double ky) {
-    this->x = kx;
-    this->y = ky;
+    this->length *= kx;
+    this->height *= ky;
 }
 
 bool Figure2D::isInside(Figure2D *p) {
