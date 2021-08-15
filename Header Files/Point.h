@@ -7,12 +7,15 @@
 class Point : public Figure2D{
 public:
     Point();
-    Point(Point& p);
+    Point(Point const& p);
     Point(char* name, double x, double y, double length = 0, double height = 0);
 
     void print() const;
     double Area() override ;
     double Perimeter() override;
+
+    Point& operator=(Point const& p);
+
 };
 
 

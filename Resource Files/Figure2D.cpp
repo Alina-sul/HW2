@@ -69,17 +69,11 @@ bool Figure2D::isInside(Figure2D *p) {
     return false;
 }
 
-void Figure2D::printPointToPoint() {
-    cout << this->getName() << ":" ;
-    cout << "Point(" << p1.getX() << "," << p1.getY() << ")-(" <<
-    p2.getX() << "," << p2.getY() << ")";
-}
-
 void Figure2D::print() {}
 
-void Figure2D::printCenter() {
+void Figure2D::printCenter() {}
 
-}
+void Figure2D::printPointToPoint() {}
 
 ostream &operator<<(ostream &o, Figure2D &d) {
     o << d.getName() << ": x=" << d.getX() << " y=" << d.getY()
@@ -87,8 +81,16 @@ ostream &operator<<(ostream &o, Figure2D &d) {
     return o;
 }
 
-Figure2D &Figure2D::operator=(const Figure2D &d){
-
+Figure2D &Figure2D::operator=(const Figure2D &d) {
+    this->x = d.x;
+    this->y = d.y;
+    this->length = d.length;
+    this->height = d.height;
+    setName(d.name);
+    return *this;
 }
+
+
+
 
 

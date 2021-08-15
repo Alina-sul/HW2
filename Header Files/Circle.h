@@ -23,7 +23,7 @@ public:
     void setCenter();
     Point getCenter();
 
-    void print() const;
+    void print() override;
     friend void Square::printCenter();
     double Area() override;
     double Perimeter() override;

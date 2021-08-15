@@ -19,14 +19,19 @@ public:
     void setPoint(const Point&); // sets p1
     Point getPoint(); // returns p1
     void setCenter();
-    Point getCenter();
+    Point getCenter() const;
     void setSide();
     double getSide() const ;
 
     void print() override;
-    void printCenter();
+    void printCenter() override;
     double Area() override;
     double Perimeter() override;
+
+    friend ostream& operator<<(ostream& o, Square& d);
+    Square& operator=(Square const& s);
+
+
 };
 
 

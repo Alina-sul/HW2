@@ -14,24 +14,25 @@ Segment::Segment(Segment& s):Figure2D(s.getLength(),s.getHeight(),0,0){
     this->BottomCornerLeft = s.getBottomCornerLeft();
 }
 
-Segment::Segment(char* name, const Point& p1, const Point& p2):Figure2D(
-          abs(p1.getHeight()-p2.getHeight()),
-          abs(p1.getLength()-p2.getLength()),
-          p1.getX(),p1.getY()) {
+Segment::Segment(char* name, const Point& p01, const Point& p02):Figure2D(
+          abs(p01.getHeight()-p02.getHeight()),
+          abs(p01.getLength()-p02.getLength()),
+          p01.getX(),p01.getY()) {
     this->setName(name);
-    this->p1 = p1;
-    this->p2 = p2;
-    this->BottomCornerLeft = (p1.getX() < p2.getX());
+    this->p1 = p01;
+    this->p2 = p02;
+    this->BottomCornerLeft = (p01.getX() < p02.getX());
 }
 
-Segment::Segment(char *name, const Point& p1, double length, double height, bool bottomCornerLeft)
-:Figure2D(length,height,p1.getX(),p1.getY()) {
+Segment::Segment(char *name, const Point& p01, double length, double height, bool bottomCornerLeft)
+:Figure2D(length,height,p01.getX(),p01.getY()) {
     this->setName(name);
-    this->p1 = p1;
+    this->p1 = Point("p01",p01.getX(),p01.getY());;
     this->BottomCornerLeft = bottomCornerLeft;
 
-    Point p2_local("p2",abs(length - p1.getX()),abs(height - p1.getY()));
+    Point p2_local("p2",abs(length - p01.getX()),abs(height - p01.getY()));
     this->p2 = p2_local;
+    ;
 }
 
 //Setters and Getters
@@ -51,8 +52,8 @@ Point Segment::getP2() {
     return this->p2;
 }
 
-void Segment::setBottomCornerLeft(bool value) {
-    this->BottomCornerLeft = value;
+void Segment::setBottomCornerLeft() {
+    this->BottomCornerLeft = (this->p1.getX() < this->p2.getX());
 }
 
 //Functions
@@ -79,4 +80,5 @@ double Segment::Perimeter() {
     double y = p1.getY() - p2.getY();
     return sqrt(pow(x,2) + pow(y,2));
 }
+
 

@@ -20,6 +20,7 @@ public:
     friend void Segment::printPointToPoint();
     double Area() override;
     double Perimeter() override;
+
 };
 
 

@@ -48,16 +48,18 @@ Point Circle::getCenter() {
 
 //Functions
 double Circle::Area() {
-    return 0;
+    return M_PI * pow(this->radius,2);
 }
 
 double Circle::Perimeter() {
-    return 0;
+    return M_PI * 2 * this->radius;
 }
 
 
-void Circle::print() const {
-
+void Circle::print() {
+    cout << "Circle ";
+    printCenter();
+    cout << " and radius " << this->getRadius() << endl;
 }
 
 

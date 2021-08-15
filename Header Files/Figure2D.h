@@ -19,7 +19,7 @@ public:
     Figure2D(Figure2D& f);
     Figure2D();
     virtual ~Figure2D() = default;
-    Figure2D& operator=(Figure2D const& d); //check about const
+    Figure2D& operator=(Figure2D const& d);
     void setName(char*);
     double getX() const;
     double getY() const;
@@ -35,8 +35,8 @@ public:
     void Scale(double kx, double ky);
     virtual bool isInside(Figure2D* p);
     virtual void print();
-    void printPointToPoint();
-    void printCenter();
+    virtual void printPointToPoint();
+    virtual void printCenter();
     friend ostream& operator<<(ostream& o, Figure2D& d);
 
 };

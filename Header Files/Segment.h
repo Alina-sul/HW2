@@ -20,15 +20,13 @@ public:
     Point getP1();
     void setP2(const Point& p);
     Point getP2();
-    void setBottomCornerLeft(bool value);
+    void setBottomCornerLeft();
     bool getBottomCornerLeft() const;
 
     void print() override ;
-    void printPointToPoint();
+    void printPointToPoint() override;
     double Area() override;
     double Perimeter() override;
-
-    friend ostream& operator<<(ostream& o, Segment& s);
 
 };
 

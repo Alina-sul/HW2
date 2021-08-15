@@ -6,7 +6,7 @@ Point::Point(char* name, double x, double y, double length, double height) : Fig
     this->setName(name);
 }
 
-Point::Point( Point& p):Figure2D(p.getLength(),p.getHeight(),p.getX(),p.getY()) {
+Point::Point( Point const& p):Figure2D(p.getLength(),p.getHeight(),p.getX(),p.getY()) {
     this->setName(p.getName());
 }
 
@@ -24,6 +24,15 @@ double Point::Area() {
 double Point::Perimeter() {
     return 0;
 }
+
+Point &Point::operator=(const Point &p) {
+    this->setName(p.getName());
+    this->MoveTo(p.getX(),p.getY());
+    return *this;
+}
+
+
+
 
 
 
