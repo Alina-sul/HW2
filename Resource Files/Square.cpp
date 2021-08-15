@@ -37,7 +37,7 @@ Square::Square(char *name, const Point& p01, double side1):Figure2D(
         ) {
     this->setName(name);
     this->p1 = p01;
-    this->center = Point("Square center",(this->p1.getX()+this->p2.getX())/2,(this->p1.getY()+this->p2.getY())/2);
+    this->center = Point("Square center",this->getLength()/2,this->getHeight()/2+p01.getY());
     this->side = side1;
 }
 
@@ -51,7 +51,7 @@ Point Square::getPoint() {
 }
 
 void Square::setCenter() {
-    this->center = Point("Square center",(this->p1.getX()+this->p2.getX())/2,(this->p1.getY()+this->p2.getY())/2);
+    this->center = Point(this->center.getName(),this->getLength()/2,this->getHeight()/2+this->p1.getY());
 }
 
 Point Square::getCenter() const{
@@ -78,7 +78,7 @@ double Square::Perimeter() {
 void Square::print() {
     cout << "Square ";
     printCenter();
-    cout << " and side " << this->getSide() << endl;
+    cout << " and side = " << this->getSide() << endl;
 }
 
 void Square::printCenter() {
@@ -92,6 +92,9 @@ ostream &operator<<(ostream &o, Square &d) {
 }
 
 Square &Square::operator=(const Square &s) {
+    this->setName(s.getName());
+    this->p1 = s.p1;
+    this->p2 = s.p2;
     this->side = s.getSide();
     this->center = s.getCenter();
     return *this;

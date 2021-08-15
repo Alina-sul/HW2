@@ -15,9 +15,9 @@ Segment::Segment(Segment& s):Figure2D(s.getLength(),s.getHeight(),0,0){
 }
 
 Segment::Segment(char* name, const Point& p01, const Point& p02):Figure2D(
-          abs(p01.getHeight()-p02.getHeight()),
-          abs(p01.getLength()-p02.getLength()),
-          p01.getX(),p01.getY()) {
+          abs(p01.getX()-p02.getX()),
+          abs(p01.getY()-p02.getY()),
+          p01.getX(),p02.getY()) {
     this->setName(name);
     this->p1 = p01;
     this->p2 = p02;
@@ -62,9 +62,9 @@ void Segment::print() {
 }
 
 void Segment::printPointToPoint() {
-    cout << this->getName() << ":" ;
-    cout << "Point(" << p1.getX() << "," << p1.getY() << ")-(" <<
-    p2.getX() << "," << p2.getY() << ")" << endl;
+    cout << this->getName() << ": " ;
+    cout << "Point(" << p1.getX() << ", " << p1.getY() << ")-(" <<
+    p2.getX() << ", " << p2.getY() << ")" << endl;
 }
 
 bool Segment::getBottomCornerLeft() const {
