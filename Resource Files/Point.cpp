@@ -1,5 +1,6 @@
 #include "../Header Files/Point.h"
 
+//Constructors
 Point::Point() = default;
 
 Point::Point(char* name, double x, double y, double length, double height) : Figure2D(length, height, x, y) {
@@ -10,6 +11,7 @@ Point::Point( Point const& p):Figure2D(p.getLength(),p.getHeight(),p.getX(),p.ge
     this->setName(p.getName());
 }
 
+//Functions
 void Point::print() const {
     cout << "Point: ";
     cout << "name = " << this->getName();

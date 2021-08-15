@@ -1,5 +1,6 @@
 #include "../Header Files/Figure2D.h"
 
+//Constructors
 Figure2D::Figure2D(double l, double h, double x, double y) {
     this->length = l;
     this->height = h;
@@ -21,8 +22,17 @@ Figure2D::Figure2D() {
     this->y = 0;
 }
 
+//Setters and Getters
 void Figure2D::setName(char* str_name) {
     this->name = str_name;
+}
+
+void Figure2D::setX(double x1) {
+    this->x = x1;
+}
+
+void Figure2D::setY(double y1) {
+    this->y = y1;
 }
 
 double Figure2D::getX() const {
@@ -45,9 +55,10 @@ char* Figure2D::getName() const{
     return this->name;
 }
 
+//Functions
 void Figure2D::Shift(double dx, double dy) {
-    this->x = dx;
-    this->y = dy;
+    this->x += dx;
+    this->y += dy;
 }
 
 void Figure2D::MoveTo(double newX, double newY) {
@@ -89,6 +100,8 @@ Figure2D &Figure2D::operator=(const Figure2D &d) {
     setName(d.name);
     return *this;
 }
+
+
 
 
 

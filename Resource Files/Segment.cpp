@@ -1,4 +1,5 @@
 #include "../Header Files/Segment.h"
+#include "../Header Files/utils.h"
 
 //Constructors
 Segment::Segment():Figure2D(0,0,0,0){
@@ -17,7 +18,8 @@ Segment::Segment(Segment& s):Figure2D(s.getLength(),s.getHeight(),0,0){
 Segment::Segment(char* name, const Point& p01, const Point& p02):Figure2D(
           abs(p01.getX()-p02.getX()),
           abs(p01.getY()-p02.getY()),
-          p01.getX(),p02.getY()) {
+          minX(p01,p02).getX(),
+          minY(p01,p02).getY()) {
     this->setName(name);
     this->p1 = p01;
     this->p2 = p02;
@@ -32,7 +34,7 @@ Segment::Segment(char *name, const Point& p01, double length, double height, boo
 
     Point p2_local("p2",abs(length - p01.getX()),abs(height - p01.getY()));
     this->p2 = p2_local;
-    ;
+
 }
 
 //Setters and Getters
@@ -71,6 +73,24 @@ bool Segment::getBottomCornerLeft() const {
     return this->BottomCornerLeft;
 }
 
+void Segment::Resize(double newL, double newH){
+
+    double differL = newL - this->getLength();
+    double differH = newH - this->getHeight();
+
+    Figure2D::Resize(newL, newH);
+
+    //Add difference of length to max-X and difference of height to max-Y
+
+    (this->p1.getX() > this->p2.getX())
+    ? this->p1.setX(this->p1.getX() + differL)  //p1.x is max
+    : this->p2.setX(this->p2.getX() + differL); //p2.x is max
+
+    (this->p1.getY() > this->p2.getY())
+    ? this->p1.setY(this->p1.getY() + differH)  //p1.y is max
+    : this->p2.setY(this->p2.getY() + differH); //p2.y is max
+}
+
 double Segment::Area() {
     return 0;
 }
@@ -80,5 +100,17 @@ double Segment::Perimeter() {
     double y = p1.getY() - p2.getY();
     return sqrt(pow(x,2) + pow(y,2));
 }
+
+void Segment::Shift(double dx, double dy) {
+    Figure2D::Shift(dx, dy);
+    //Shift p1
+    this->p1.setX(this->p1.getX() + dx);
+    this->p1.setY(this->p1.getY() + dy);
+    //Shift p2
+    this->p2.setX(this->p2.getX() + dx);
+    this->p2.setY(this->p2.getY() + dy);
+}
+
+
 
 

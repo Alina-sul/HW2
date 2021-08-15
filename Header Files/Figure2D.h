@@ -23,17 +23,20 @@ public:
     void setName(char*);
     double getX() const;
     double getY() const;
+    void setX(double x);
+    void setY(double y);
     double getLength() const;
     double getHeight() const;
     char* getName() const;
     virtual double Area() = 0; //שטח
     virtual double Perimeter() = 0;//היקף
-    void Shift(double dx, double dy);
 
-    void MoveTo(double newX, double newY);
-    void Resize(double newL, double newH);
+    virtual void Shift(double dx, double dy);
+    virtual void MoveTo(double newX, double newY);
+    virtual void Resize(double newL, double newH);
     void Scale(double kx, double ky);
     virtual bool isInside(Figure2D* p);
+
     virtual void print();
     virtual void printPointToPoint();
     virtual void printCenter();
