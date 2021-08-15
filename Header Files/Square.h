@@ -24,7 +24,6 @@ public:
     double getSide() const ;
 
     void print() override;
-    void printCenter() override;
     double Area() override;
     double Perimeter() override;
 

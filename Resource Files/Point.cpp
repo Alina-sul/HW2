@@ -12,11 +12,9 @@ Point::Point( Point const& p):Figure2D(p.getLength(),p.getHeight(),p.getX(),p.ge
 }
 
 //Functions
-void Point::print() const {
-    cout << "Point: ";
-    cout << "name = " << this->getName();
-    cout << ", x = " << this->getX();
-    cout << ", y = " << this->getY() << endl;
+void Point::print() {
+    cout << "Pt: (" << this->getX()
+    << ", " << this->getY() << ")" << endl;
 }
 
 double Point::Area() {

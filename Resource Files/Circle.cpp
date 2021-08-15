@@ -1,4 +1,5 @@
 #include "../Header Files/Circle.h"
+#include "../Header Files/utils.h"
 
 //Constructors
 Circle::Circle():Figure2D(0,0,0,0) {
@@ -58,7 +59,7 @@ double Circle::Perimeter() {
 
 void Circle::print() {
     cout << "Circle ";
-    printCenter();
+    printCenter(this->getName(),this->center);
     cout << " and radius " << this->getRadius() << endl;
 }
 

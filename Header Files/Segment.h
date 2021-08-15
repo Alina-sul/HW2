@@ -24,7 +24,6 @@ public:
     bool getBottomCornerLeft() const;
 
     void print() override ;
-    void printPointToPoint() override;
     double Area() override;
     double Perimeter() override;
     void Resize(double newL, double newH) override;

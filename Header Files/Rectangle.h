@@ -2,7 +2,6 @@
 #define HW2_RECTANGLE_H
 
 #include "Figure2D.h"
-#include "Segment.h"
 #include "Point.h"
 
 
@@ -19,6 +18,9 @@ public:
     void print() override;
     double Area() override;
     double Perimeter() override;
+    void Resize(double newL, double newH) override;
+    void Shift(double dx, double dy) override;
+    void Scale(double kx, double ky) override;
 
 };
 

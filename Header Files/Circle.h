@@ -4,7 +4,6 @@
 
 #include "Figure2D.h"
 #include "Point.h"
-#include "Square.h"
 
 
 class Circle: public Figure2D{
@@ -24,7 +23,6 @@ public:
     Point getCenter();
 
     void print() override;
-    friend void Square::printCenter();
     double Area() override;
     double Perimeter() override;
 };

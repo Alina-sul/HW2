@@ -1,4 +1,5 @@
 #include "../Header Files/Square.h"
+#include "../Header Files/utils.h"
 
 //Constructors
 Square::Square():
@@ -77,13 +78,8 @@ double Square::Perimeter() {
 
 void Square::print() {
     cout << "Square ";
-    printCenter();
+    printCenter(this->getName(),this->center);
     cout << " and side = " << this->getSide() << endl;
-}
-
-void Square::printCenter() {
-    cout << this->getName() << " with center (" <<
-    this->center.getX() << "," << this->center.getY() << ")";
 }
 
 ostream &operator<<(ostream &o, Square &d) {

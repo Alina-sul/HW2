@@ -58,20 +58,14 @@ void Segment::setBottomCornerLeft() {
 
 //Functions
 void Segment::print() {
-    printPointToPoint();
-}
-
-void Segment::printPointToPoint() {
-    cout << this->getName() << ": " ;
-    cout << "Point(" << p1.getX() << ", " << p1.getY() << ")-(" <<
-    p2.getX() << ", " << p2.getY() << ")" << endl;
+    printPointToPoint(this->getName(),this->p1,this->p2);
 }
 
 bool Segment::getBottomCornerLeft() const {
     return this->BottomCornerLeft;
 }
 
-void Segment::Resize(double newL, double newH){
+void Segment::Resize(double newL, double newH) {
     Figure2D::Resize(newL, newH);
     updateCoordinatesHL(this->p1,this->p2,this->getLength(),this->getHeight());
 }
@@ -88,12 +82,7 @@ double Segment::Perimeter() {
 
 void Segment::Shift(double dx, double dy) {
     Figure2D::Shift(dx, dy);
-    //Shift p1
-    this->p1.setX(this->p1.getX() + dx);
-    this->p1.setY(this->p1.getY() + dy);
-    //Shift p2
-    this->p2.setX(this->p2.getX() + dx);
-    this->p2.setY(this->p2.getY() + dy);
+    shiftCoordinates(this->p1, this->p2, dx, dy);
 }
 
 void Segment::Scale(double kx, double ky) {

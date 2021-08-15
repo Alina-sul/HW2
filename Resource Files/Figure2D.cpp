@@ -82,10 +82,6 @@ bool Figure2D::isInside(Figure2D *p) {
 
 void Figure2D::print() {}
 
-void Figure2D::printCenter() {}
-
-void Figure2D::printPointToPoint() {}
-
 ostream &operator<<(ostream &o, Figure2D &d) {
     o << d.getName() << ": x=" << d.getX() << " y=" << d.getY()
     << " length=" << d.getLength() << " height=" << d.getHeight();

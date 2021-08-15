@@ -37,9 +37,7 @@ public:
     virtual void Scale(double kx, double ky);
     virtual bool isInside(Figure2D* p);
 
-    virtual void print();
-    virtual void printPointToPoint();
-    virtual void printCenter();
+    virtual void print() = 0;
     friend ostream& operator<<(ostream& o, Figure2D& d);
 
 };

@@ -10,7 +10,7 @@ public:
     Point(Point const& p);
     Point(char* name, double x, double y, double length = 0, double height = 0);
 
-    void print() const;
+    void print() override;
     double Area() override ;
     double Perimeter() override;
 
