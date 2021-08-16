@@ -17,16 +17,16 @@ Point& maxY(const Point& a, const Point& b) {
 // print functions
 void printPointToPoint(char* name, const Point& p1, const Point& p2) {
     cout << name << ": " ;
-    cout << "Point(" << p1.getX() << ", " << p1.getY() << ")-(" <<
+    cout << "Point(" << p1.getX() << ", " << p1.getY() << ")-Point(" <<
     p2.getX() << ", " << p2.getY() << ")" << endl;
 }
 void printCenter(char* name, const Point& center) {
     cout << name << " with center (" <<
-    center.getX() << "," << center.getY() << ")";
+    center.getX() << ", " << center.getY() << ")";
 }
 
 
-//
+//Coordinates update
 void updateCoordinatesHL(const Point& p1,const Point& p2, double length, double height){
     //update coordinates
     maxX(p1,p2).setX(minX(p1,p2).getX() + length);
@@ -41,3 +41,4 @@ void shiftCoordinates(Point& p1, Point& p2, double dx, double dy) {
     p2.setX(p2.getX() + dx);
     p2.setY(p2.getY() + dy);
 }
+

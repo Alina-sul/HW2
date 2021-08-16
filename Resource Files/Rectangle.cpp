@@ -55,5 +55,9 @@ void Rectangle::Scale(double kx, double ky) {
     updateCoordinatesHL(this->p1,this->p2,this->getLength(),this->getHeight());
 }
 
+bool Rectangle::isInside(Figure2D *p) {
+    return (p->getX() >= this->getX() && p->getY() >= this->getY());
+}
+
 
 

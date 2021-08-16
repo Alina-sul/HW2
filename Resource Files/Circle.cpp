@@ -61,7 +61,7 @@ double Circle::Perimeter() {
 void Circle::print() {
     cout << "Circle ";
     printCenter(this->getName(),this->center);
-    cout << " and radius " << this->getRadius() << endl;
+    cout << " and radius = " << this->getRadius() << endl;
 }
 
 void Circle::Resize(double newL, double newH) {
@@ -80,4 +80,10 @@ void Circle::Scale(double kx, double ky) {
     Figure2D::Scale(kx, ky);
     this->setRadius();
     this->setCenter();
+}
+
+bool Circle::isInside(Figure2D *p) {
+    //check if p coordinates are inside circle function (x-a)^2 + (y-b)^2 = R^2
+    return ((pow(p->getX() - this->center.getX(),2) +
+    pow(p->getY() - this->center.getY(),2) == pow(this->getRadius(),2)));
 }

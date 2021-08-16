@@ -90,5 +90,17 @@ void Segment::Scale(double kx, double ky) {
     updateCoordinatesHL(this->p1,this->p2,this->getLength(),this->getHeight());
 }
 
+bool Segment::isInside(Figure2D *p) {
+    double m = (this->p1.getY() - this->p2.getY())/(this->p1.getX() - this->p2.getX());
+    double n = this->p1.getY() - m * this->p1.getX();
+
+    //check if p coordinates are on linear function mx + n = y or beneath and above rectangle
+    return (p->getX() <= maxX(this->p1,this->p2).getX() &&
+            p->getX() >= minX(this->p1,this->p2).getX() &&
+            p->getY() <= (p->getX() * m + n) &&
+            p->getY() >= minY(this->p1,this->p2).getY()
+            );
+}
+
 
 

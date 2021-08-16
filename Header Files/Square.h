@@ -29,6 +29,7 @@ public:
     void Resize(double newL, double newH) override;
     void Shift(double dx, double dy) override;
     void Scale(double kx, double ky) override;
+    bool isInside(Figure2D* p) override;
 
     friend ostream& operator<<(ostream& o, Square& d);
     Square& operator=(Square const& s);

@@ -35,7 +35,7 @@ public:
     virtual void MoveTo(double newX, double newY);
     virtual void Resize(double newL, double newH);
     virtual void Scale(double kx, double ky);
-    virtual bool isInside(Figure2D* p);
+    virtual bool isInside(Figure2D* p) = 0;
 
     virtual void print() = 0;
     friend ostream& operator<<(ostream& o, Figure2D& d);

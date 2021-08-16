@@ -47,6 +47,10 @@ Point &Point::operator=(const Point &p) {
     return *this;
 }
 
+bool Point::isInside(Figure2D *p) {
+    return (this->getX() == p->getX() && this->getY() == p->getY());
+}
+
 
 
 

@@ -12,6 +12,7 @@ Figure2D(0,0,0,0) {
 
 Square::Square(Square &s):
 Figure2D(s.getLength(),s.getHeight(),s.getPoint().getX(),s.getPoint().getY()) {
+    this->setName(s.getName());
     this->center = s.getCenter();
     this->side = s.getSide();
 }
@@ -117,6 +118,11 @@ void Square::Scale(double kx, double ky) {
     updateCoordinatesHL(this->p1,this->p2,this->getLength(),this->getHeight());
     this->setSide();
     this->setCenter();
+}
+
+bool Square::isInside(Figure2D *p) {
+    return (abs(p->getX() - this->center.getX()) <= this->getSide()/2 &&
+    abs(p->getY() - this->center.getY()) <= this->getSide()/2);
 }
 
 

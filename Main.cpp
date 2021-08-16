@@ -16,8 +16,8 @@ int main()
 	Circle C("Circle P,5", P, 5);
 	Square SP5("Square P,5", P, 5);
 	cout << "object SP5: perimeter=" << SP5.Perimeter() << ", area=" << SP5.Area() << ", " << SP5 << endl;
-	Square SP51=SP5;
-//	cout << "object SP51: perimeter=" << SP51.Perimeter() << ", area=" << SP51.Area() << ", " << SP51 << endl;
+	Square SP51 = SP5;
+	cout << "object SP51: perimeter=" << SP51.Perimeter() << ", area=" << SP51.Area() << ", " << SP51 << endl;
 	Square SP52;
 	SP52 = SP5;
 	cout << "object SP52: perimeter=" << SP52.Perimeter() << ", area=" << SP52.Area() << ", " << SP52 << endl;
